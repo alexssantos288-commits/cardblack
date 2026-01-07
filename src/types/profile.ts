@@ -1,43 +1,37 @@
-export interface SocialLink {
-  id: string;
-  platform: string;
-  url: string;
-  icon: string;
-}
-
-export interface CustomLink {
-  id: string;
-  title: string;
-  url: string;
-  icon?: string;
-  linkIconOnly?: boolean;
-}
-
 export interface CatalogItem {
   id: string;
   name: string;
   price: string;
   description?: string;
   images?: string[];
+  hidden?: boolean;
+  buttonText?: string;      // ADICIONADO
+  linkType?: string;        // ADICIONADO
+  imageAbove?: boolean;     // ADICIONADO
 }
 
 export interface UserProfile {
   name: string;
   bio: string;
   avatar: string;
-  themeColor: string; // Adicionado
-  buttonStyle: string; // Adicionado
+  themeColor: string;
+  buttonStyle: 'rounded' | 'square';
   contact: {
     phone: string;
     whatsapp: string;
     email: string;
     website: string;
+    instagram: string;
+    twitter: string;
+    facebook: string;
+    linkedin: string;
+    spotify: string;
+    youtube: string;
+    tiktok: string;
+    location: string;
+    googleReviews: string;
     address: string;
   };
-  socialLinks: SocialLink[];
-  customLinks: CustomLink[];
-  linkOrder: string[];
-  standardLinkIconOnly: Record<string, boolean>;
   pix: {
     enabled: boolean;
     keyType: string;
@@ -56,4 +50,8 @@ export interface UserProfile {
       message: boolean;
     };
   };
+  socialLinks: any[];
+  customLinks: any[];
+  linkOrder: string[];
+  standardLinkIconOnly: any;
 }
