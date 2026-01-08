@@ -1,57 +1,43 @@
-export interface CatalogItem {
-  id: string;
-  name: string;
-  price: string;
-  description?: string;
-  images?: string[];
-  hidden?: boolean;
-  buttonText?: string;      // ADICIONADO
-  linkType?: string;        // ADICIONADO
-  imageAbove?: boolean;     // ADICIONADO
-}
-
 export interface UserProfile {
   name: string;
   bio: string;
   avatar: string;
   themeColor: string;
-  buttonStyle: 'rounded' | 'square';
+  textColor?: string; // Nova
+  buttonOpacity?: number; // Nova
+  borderRadius?: number; // Nova
+  background?: { // Nova
+    type: 'solid' | 'gradient' | 'image';
+    value: string;
+    image?: string;
+  };
   contact: {
     phone: string;
     whatsapp: string;
     email: string;
-    website: string;
     instagram: string;
-    twitter: string;
-    facebook: string;
-    linkedin: string;
-    spotify: string;
-    youtube: string;
-    tiktok: string;
+    website: string;
     location: string;
-    googleReviews: string;
-    address: string;
+    tiktok?: string;
+    twitter?: string;
+    spotify?: string;
+    googleReviews?: string;
+    facebook?: string;
+    linkedin?: string;
+    youtube?: string;
   };
   pix: {
     enabled: boolean;
-    keyType: string;
     key: string;
+    keyType: string;
     name: string;
     city: string;
   };
-  catalog: CatalogItem[];
+  catalog: any[];
   contactForm: {
     enabled: boolean;
     title: string;
-    fields: {
-      name: boolean;
-      email: boolean;
-      phone: boolean;
-      message: boolean;
-    };
+    fields: any[];
+    destination: 'email' | 'whatsapp';
   };
-  socialLinks: any[];
-  customLinks: any[];
-  linkOrder: string[];
-  standardLinkIconOnly: any;
 }
